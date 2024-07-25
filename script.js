@@ -1,17 +1,20 @@
+
 const sendChatBtn = document.querySelector(".chat-input span")
 const chatInput = document.querySelector(".chat-input textarea")
 const chatbox = document.querySelector(".chatbox")
 let usermessage;
 let API_KEY=""
 var asked = 0
+
+
 document.getElementById("qty").innerHTML= asked
 
 const createChatLi = (message,className) => {
     //luodaan <li> elementti jonka sisällä on message muuttujan sisältö
     const chatLi = document.createElement("li")
-    chatLi.classList.add("chat",className)
+    chatLi.classList.add("chat-incoming",className)
     //? : notaatio on ternary operaattori eli käytännössä if/else
-    let chatContent= className ==="outgoing" ? `<p>${message}</p>`: `<span class="material-symbols-outlined">Sentiment_Satisfied</span> <p>${message}</p>`
+    let chatContent= className ==="outgoing" ? `<p>${message}</p>`: `<p>${message}</p>`
     chatLi.innerHTML=chatContent
     return chatLi
     
@@ -39,7 +42,7 @@ const generateResponse = () => {
     }
     fetch(API_URL,requestOptions).then(res=>res.json()).then(data => {
         console.log(data)
-        chatbox.appendChild(createChatLi(data.choices[0].message.content,"incoming"))
+        chatbox.appendChild(createChatLi(data.choices[0].message.content,"chat-incoming"))
        
     }).catch((error)=>{
         console.log(error)
@@ -56,7 +59,7 @@ chatbox.appendChild(createChatLi(usermessage, "outgoing"))
 
 setTimeout(()=>{
     //thinking teksti sijoitetaan incoming elementtiin
-    chatbox.appendChild(createChatLi("Thinking","incoming"))
+    chatbox.appendChild(createChatLi("Thinking","chat-incoming"))
     generateResponse()
 },600)
 
