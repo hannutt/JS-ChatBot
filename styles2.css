@@ -8,6 +8,9 @@
     border-radius: 15px;
     border-style: solid;
     border-color:red;
+    /*skrollauspalkki*/
+    overflow-y: scroll;
+    
 
 
 }
@@ -17,21 +20,16 @@
     font-size: medium;
     
    
-    height: 50px;
+    /*height: 50px;*/
 }
 
 body {
     background-image: url('/images/BGimg.jpg');
 }
 .asked {
-    display: inline;
-    vertical-align: top;
-    position: relative;
-    left: 40px;
-    bottom: 475px;
     font-weight: bold;
 }
-
-.chat-incoming {
-    color:white
+.ask {
+    white-space: nowrap;
 }
+
