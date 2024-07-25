@@ -7,7 +7,9 @@ let API_KEY=""
 var asked = 0
 
 
+
 document.getElementById("qty").innerHTML= asked
+
 
 const createChatLi = (message,className) => {
     //luodaan <li> elementti jonka sisällä on message muuttujan sisältö
