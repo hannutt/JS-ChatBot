@@ -39,7 +39,7 @@ const generateResponse = () => {
     }
     fetch(API_URL,requestOptions).then(res=>res.json()).then(data => {
         console.log(data)
-        chatbox.appendChild(createChatLi(data.error.code,"incoming"))
+        chatbox.appendChild(createChatLi(data.choices[0].message.content,"incoming"))
        
     }).catch((error)=>{
         console.log(error)
