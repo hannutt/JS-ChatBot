@@ -3,8 +3,23 @@ const sendChatBtn = document.querySelector(".chat-input span")
 const chatInput = document.querySelector(".chat-input textarea")
 const chatbox = document.querySelector(".chatbox")
 let usermessage;
-let API_KEY=""
+
 var asked = 0
+
+function getApiKey() {
+    fetch("/js/apikey.txt")
+
+    .then( r => r.text() )
+    .then( t => {
+
+        API_KEY = t;
+        console.log(API_KEY);
+        return API_KEY;
+       
+  } )
+   
+
+}
 
 
 
@@ -24,6 +39,7 @@ const createChatLi = (message,className) => {
 
 
 const generateResponse = () => {
+    getApiKey()
     asked = asked+1
     document.getElementById("qty").innerHTML=asked
     const API_URL="https://api.openai.com/v1/chat/completions"
@@ -61,7 +77,7 @@ chatbox.appendChild(createChatLi(usermessage, "outgoing"))
 
 setTimeout(()=>{
     //thinking teksti sijoitetaan incoming elementtiin
-    chatbox.appendChild(createChatLi("Thinking","chat-incoming"))
+    //chatbox.appendChild(createChatLi("Thinking","chat-incoming"))
     generateResponse()
 },600)
 

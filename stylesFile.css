@@ -38,19 +38,47 @@ body {
 .examples {
     position: fixed;
     left:360px;
-    top:50px;
+    top:40px;
     background-color: whitesmoke;
     width: 25%;
     border-radius: 8px;
 }
 .hideBtn {
     position: fixed;
-    left:640px;
-    top:210px;
+    left:705px;
+    top:170px;
 }
 .ownQuestion {
     background-color: whitesmoke;
     position: fixed;
     left:500px;
     top:250px;
+}
+
+.readBtn {
+    position: fixed;
+    top:210px;
+    left:360px;
+}
+.news {
+    position: fixed;
+    left: 360px;
+    top:240px;
+    background-color: whitesmoke;
+    width: 25%;
+}
+.newsTemplate {
+    position: fixed;
+    left: 360px;
+    top:285px;
+    background-color: whitesmoke;
+    width: 25%;
+    border: 1px solid black;
+    height:55%;
+    overflow-y: scroll;
+
+}
+.chat-incoming {
+    background-color: #c1e2e8;
+    border-radius: 10px;
 }

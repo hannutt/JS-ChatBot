@@ -1,10 +1,22 @@
 Project keywords: JavaScript, AI, HTML, CSS, API, Google Translate API.
 
-A JavaScript chatbot that uses OpenAI's GPT-3.5 Turbo API to generate responses for the user.
+A JavaScript chatbot and news feed application that uses OpenAI's GPT-3.5 Turbo API to generate responses for the user and Newsapi.org's HTTP REST API to generate a news feed for the user.
 
-![alt text](chatbot.png)
+Example image of the user interface where the chatbot has been asked a question and at the same time news headlines from the USA have been retrieved.
+
+![alt text](chatbot-1.png)
+
+CHATBOT
 
 The program has a html interface with an input field where the user can write their question and send it by clicking the submit icon. The question is stored in a variable that the javaScript function sends to the OpenAi API in JSON format. The response from the API is retrieved using the JavaScript Fetch method.
+
+News Feed
+
+The news feed function has its own user interface, so you can use the chatbot and the news feed at the same time or separately.
+
+The news feed is retrieved using the newsapi.org Http Rest API. The working principle is very similar to the Chat GPT API described above. The News API response displays the data in a array, so they are looped through in a forEach loop and displayed in a li-element, and each news item gets its own li-element using the JavaScript createElement method.
+
+For now, the news feed is available by country. The country is selected from the html-select component and the selection is passed as a parameter to the function that implements the api call.
 
 Translate
 

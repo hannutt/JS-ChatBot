@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Chatbot</title>
     
-    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="stylesFile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" >
     <div id="google_translate_element"></div>
@@ -22,30 +22,36 @@ function googleTranslateElementInit() {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <script src="js/script.js" defer></script>
     <script src="js/DragNdrop.js" defer></script>
+    <script src="js/news.js"></script>
+
+    
 </head>
 
-<body>
+<body onload="getApiKey()">
     <span class="notranslate">
    <div class="examples">
     <h3>Example questions (drag & drop)</h3>
     <p id="exp1" draggable="true" ondragstart="drag(event)">Where is Hungary?</p>
     <p id="exp2" draggable="true" ondragstart="drag(event)">What is Node.js?</p>
     <p id="exp3"draggable="true" ondragstart="drag(event)">what is the weather like in Finland?</p>
+  
+    
+
    </div>
    <button class="hideBtn" id="hide">Hide</button>
 </span>
 
    <script>
     
-    var clicks=0
+    var templateClicks=0
 $("#hide").click(function(){
-    clicks+=1
-    if (clicks % 1 == 0)
+    templateClicks+=1
+    if (templateClicks % 1 == 0)
     document.getElementById("hide").textContent="Show"
 {
     $(".examples").hide();  
 }
-if (clicks % 2 == 0)
+if (templateClicks % 2 == 0)
 {
     $(".examples").show(); 
     document.getElementById("hide").textContent="Hide"
@@ -68,8 +74,9 @@ if (clicks % 2 == 0)
             <li class="chat-incoming">
               
                 <div>
-                     <!--google ikoni-->
+                     
                      <span class="notranslate">
+                        <!--google ikoni-->
                 <span class="material-symbols-outlined">Sentiment_Satisfied</span>
             </span>
                 <p class="ask">Ask something</p>
@@ -88,18 +95,54 @@ if (clicks % 2 == 0)
     <div class="respose" id="respose">
     </div>
     </span>
-        <span class="notranslate">
+        <span class="translate">
         <div class="chat-input">
             
             <textarea id="txt" placeholder="Your message" ondrop="drop(event)" ondragover="allowDrop(event)"></textarea>
+        </span>
+        <span class="notranslate">
             <span id="send-btn" class="material-symbols-outlined">
-                send
+                send</span>
             </span>
+            
                 
         </div>
     </div>
     
 </div>
+<div class="news">
+<button id="readBtn" class="readBtn">Open news options</button>
+<div class="newsTemplate">
+    
+    <ul id="titles"></ul>
+    <div id="newstext" class="newstext"></div>
+</div>
+<label for="country">Read current headlines from country:</label>
+<select name="country" id="country" onchange="selectCountry(this)">
+  <option value="us">USA</option>
+  <option value="jp">Japan</option>
+</select>
+
+<button onclick="getNewsHeadlines()">Get news</button>
+</div>
+<script>
+    
+    var templateClicks=0
+$("#readBtn").click(function(){
+    templateClicks+=1
+    if (templateClicks % 1 == 0)
+   
+{
+    $(".newsTemplate").hide();  
+}
+if (templateClicks % 2 == 0)
+{
+    $(".newsTemplate").show(); 
+   
+}
+  
+});
+   </script> 
 </body>
 
 </html>
