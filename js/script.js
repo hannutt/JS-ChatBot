@@ -13,7 +13,7 @@ function getApiKey() {
     .then( t => {
 
         API_KEY = t;
-        console.log(API_KEY);
+        
         return API_KEY;
        
   } )

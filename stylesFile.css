@@ -68,9 +68,10 @@ body {
     width: 25%;
 }
 .newsTemplate {
+    border-radius: 10px;
     position: fixed;
     left: 360px;
-    top:285px;
+    top:355px;
     background-color: whitesmoke;
     width: 25%;
     border: 1px solid black;

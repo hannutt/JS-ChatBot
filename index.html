@@ -119,11 +119,16 @@ if (templateClicks % 2 == 0)
 </div>
 <label for="country">Read current headlines from country:</label>
 <select name="country" id="country" onchange="selectCountry(this)">
+  <option value="select" selected>select</option>
   <option value="us">USA</option>
   <option value="jp">Japan</option>
 </select>
+<br>
+<label for="keyword">Or use keyword</label>
+<input type="text" id="keyword" placeholder="keyword" onchange="setVisible(document.getElementById('keyword').value)">
 
 <button onclick="getNewsHeadlines()">Get news</button>
+<button hidden id="keywordBtn" class="keywordBtn" onclick="getByKeyword()">Get By keyword</button>
 </div>
 <script>
     
@@ -131,14 +136,19 @@ if (templateClicks % 2 == 0)
 $("#readBtn").click(function(){
     templateClicks+=1
     if (templateClicks % 1 == 0)
+     document.getElementById("readBtn").textContent="Show news feed"
+    
    
 {
     $(".newsTemplate").hide();  
 }
 if (templateClicks % 2 == 0)
+
 {
-    $(".newsTemplate").show(); 
+    document.getElementById("readBtn").textContent="Hide news feed"
    
+    $(".newsTemplate").show(); 
+    
 }
   
 });
