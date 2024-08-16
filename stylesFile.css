@@ -61,11 +61,13 @@ body {
     left:360px;
 }
 .news {
+    padding: 10px;
     position: fixed;
     left: 360px;
     top:240px;
     background-color: whitesmoke;
     width: 25%;
+    border-radius: 10px;
 }
 .newsTemplate {
     border-radius: 10px;

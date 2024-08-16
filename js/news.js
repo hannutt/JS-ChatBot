@@ -3,15 +3,32 @@ var newstext = document.querySelector(".newsText")
 var ulTitles = document.querySelector('titles')
 var apiKey=""
 
+const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+
+// This arrangement can be altered based on how we want the date's format to appear.
+let currentDate = `${year}-0${month}-${day}`;
+console.log(currentDate); // yyyy-mm--dd
+
+
+
+
+
 
 function setVisible(keyword) {
     if (keyword.length>0)
     {
+        
         document.getElementById("keywordBtn").hidden=false;
+        document.getElementById("searchDate").hidden=false
 
     }
     else {
         document.getElementById("keywordBtn").hidden=true
+        document.getElementById("searchDate").hidden=true
 
 
     }
@@ -22,18 +39,39 @@ function setVisible(keyword) {
 
 
 function selectCountry(country) {
+    //alasvetovalikon value
     var selected= country.options[country.selectedIndex].value
+    //alasvetovalikon teksti joka näkyy käyttäjälle.
+    var selectedtxt= country.options[country.selectedIndex].text
+    document.getElementById("headlinesBtn").textContent="Get "+selectedtxt+" headlines"
     
     return selected
 }
 
 function getByKeyword() {
+    document.getElementById("newsTemplate").hidden=false
+    var searchDate=document.getElementById("searchDate").value
+    if (searchDate=='')
+    {
+        searchDate=currentDate
+       // console.log(searchDate)
+        
+        
+    }
+    
+    else if (searchDate!='') {
+       // console.log(searchDate)
+
+    }
+    console.log(searchDate)
+    /*
+
     var keyword = document.getElementById("keyword").value
     console.log(keyword)
             
     var url = 'https://newsapi.org/v2/everything?' +
     `q=${keyword}&` +
-    'from=2024-08-01&' +
+    `from=${searchDate}` +
     'sortBy=popularity&' +
     `apiKey=${apiKey}`;
     var req = new Request(url);
@@ -56,7 +94,7 @@ function getByKeyword() {
         
       
     })
-    .catch(error=>console.log(error))
+    .catch(error=>console.log(error))*/
     
     }
 

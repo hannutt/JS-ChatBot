@@ -1,4 +1,4 @@
-Project keywords: JavaScript, AI, HTML, CSS, API, Google Translate API.
+Project keywords: Vanilla-JavaScript, AI, HTML, CSS, API, jQuery. 
 
 A JavaScript chatbot and news feed application that uses OpenAI's GPT-3.5 Turbo API to generate responses for the user and Newsapi.org's HTTP REST API to generate a news feed for the user.
 
@@ -11,6 +11,10 @@ Example image of the user interface showing the found news feed with the searche
 
 ![alt text](bykeyword.png)
 
+overview of the interface used to retrieve news from the News API. The user interface has options from which to select news headlines from Great Britain, as well as news with the search term Apple from 1.8.24
+
+![alt text](UInews.png)
+
 
 CHATBOT
 
@@ -22,11 +26,16 @@ The news feed function has its own user interface, so you can use the chatbot an
 
 The news feed is retrieved using the newsapi.org Http Rest API. The working principle is very similar to the Chat GPT API described above. The News API response displays the data in a array, so they are looped through in a forEach loop and displayed in a li-element, and each news item gets its own li-element using the JavaScript createElement method.
 
-For now, the news feed is available by country and keyword search.
+For now, the news feed is available by country, keyword and date search.
 The country is selected from the html-select component and the selection is passed as a parameter to the function that implements the api call. The country feature displays 20 current news feeds from the selected country.
 
 The keyword search is started by entering the keyword in the input field. the input field has an onChange event handler that displays the hidden button element if at least one character is typed into the input field. The search is started by clicking the button that appears.
 The keyword is passed as a parameter to the newsAPI URL.
+
+Date search. The user can enter the start date in the input field. The News API requires a date in the format YYYY-MM-DD. Since form is important, I used two methods to guide the user in spelling.
+
+The first way is to use a placeholder and the second way is the jQuery Masking plugin.
+The masking plugin automatically adds a hyphen in the right place, i.e. the first hyphen is added after 4 characters and the remaining hyphens after 2 characters.
 
 
 Translate
