@@ -1,7 +1,7 @@
 
 var newstext = document.querySelector(".newsText")
 var ulTitles = document.querySelector('titles')
-var apiKey = "056550832dc047248fa9bc3b6c9038d0"
+var apiKey = ""
 
 
 const date = new Date();
