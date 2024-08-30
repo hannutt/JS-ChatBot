@@ -45,6 +45,11 @@ Translate
 
 The application includes the Google Translate API, so you can translate the user interface and the chatbot's response to any language that google translate supports. By default, all answers will be in English.
 
+An example picture of the chatbot's response translated into Finnish using the Google Translate API.
+The API integration can be seen in the upper left of the picture, where you can choose the translation language you want.
+
+![alt text](chatbottranslate.png)
+
 
 
 
