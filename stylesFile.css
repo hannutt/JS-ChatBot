@@ -64,7 +64,7 @@ body {
     padding: 10px;
     position: fixed;
     left: 360px;
-    top:240px;
+    top:50px;
     background-color: whitesmoke;
     width: 25%;
     border-radius: 10px;
@@ -73,7 +73,7 @@ body {
     border-radius: 10px;
     position: fixed;
     left: 360px;
-    top:355px;
+    top:255px;
     background-color: whitesmoke;
     width: 25%;
     border: 1px solid black;

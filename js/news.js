@@ -1,7 +1,8 @@
 
 var newstext = document.querySelector(".newsText")
 var ulTitles = document.querySelector('titles')
-var apiKey=""
+var apiKey = "056550832dc047248fa9bc3b6c9038d0"
+
 
 const date = new Date();
 
@@ -64,7 +65,7 @@ function getByKeyword() {
 
     }
     console.log(searchDate)
-    /*
+    
 
     var keyword = document.getElementById("keyword").value
     console.log(keyword)
@@ -94,9 +95,25 @@ function getByKeyword() {
         
       
     })
-    .catch(error=>console.log(error))*/
+    .catch(error=>console.log(error))
     
     }
+
+    function allowDrop(ev) {
+        ev.preventDefault();
+      }
+      
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+    
+     
+      
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.value=document.getElementById(data).innerText;
+      }
 
 
 function getNewsHeadlines() {
@@ -124,6 +141,7 @@ fetch(req)
         const li = document.createElement("li")
         li.innerText= article.title
         document.getElementById("newstext").appendChild(li)
+      
             
         });
         
