@@ -106,13 +106,14 @@ if (templateClicks % 2 == 0)
 </div>
 <span class="notranslate">
 <div class="news">
-<button id="readBtn" class="readBtn">Close news feed win.</button>
+<button id="readBtn" class="readBtn">Show news feed</button>
 <div hidden class="newsTemplate" id="newsTemplate">
     
     <ul id="titles"></ul>
     <div id="newstext" class="newstext"></div>
 </div>
 <label for="country">Read current headlines from country:</label>
+<br><br>
 <select name="country" id="country" onchange="selectCountry(this)">
   <option value="select" selected>select</option>
   <option value="us">USA</option>
@@ -120,22 +121,27 @@ if (templateClicks % 2 == 0)
   <option value="de">Germany</option>
   <option value="gb">Great Britain</option>
 </select>
-<button id="headlinesBtn" class="btn btn-info btn-sm" onclick="getNewsHeadlines()">Get headlines</button>
+<button id="headlinesBtn" class="newsBtn" onclick="getNewsHeadlines()">Get headlines</button>
 <br>
 
+
+<br>
+
+<div class="inputs">
+    <label for="keyword"><b>Or use keyword:</b></label>
+<input type="text" id="keyword" placeholder="keyword" onchange="setVisible(document.getElementById('keyword').value)">
+<br><br>
+<label hidden id="dateLbl" for="searchDate"><b>From the date:</b></label>
+<input hidden type="text" id="searchDate" name="searchDate" placeholder="yyyy-mm-dd">
 <script>
     $('input[name="searchDate"]').mask('0000-00-00'); 
 </script>
 <br>
-<label for="keyword">Or use keyword:</label>
-<input type="text" id="keyword" placeholder="keyword" onchange="setVisible(document.getElementById('keyword').value)">
-<br>
-<label for="searchDate">From the date:</label>
-<input hidden type="text" id="searchDate" name="searchDate" placeholder="yyyy-mm-dd">
-<br>
+</div>
+
 <button hidden id="keywordBtn" class="keywordBtn" onclick="getByKeyword()">Get By keyword</button>
 </span>
-</div>
+
 <script>
    
     

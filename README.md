@@ -6,12 +6,12 @@ The main idea of ​​combining the GPT interface and the news feed is that the
 
 An example picture where current news headlines have been searched by limiting the target country to the USA.
 
-![alt text](chatbotUsa.png)
+![alt text](chatbotUsa-1.png)
 
 
 Example image, where news is searched for from the News API using the keyword (Apple) starting on August 1, 2024.
 
-![alt text](bykeyword.png)
+![alt text](bykeyword-1.png)
 
 
 
