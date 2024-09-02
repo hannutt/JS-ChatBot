@@ -1,24 +1,6 @@
 
 var newstext = document.querySelector(".newsText")
 var ulTitles = document.querySelector('titles')
-var apikey=''
-
-
-function getApiKey() {
-    fetch("/js/newsapikey.txt")
-
-        .then(r => r.text())
-        .then(t => {
-
-            API_KEY = t;
-
-            return API_KEY;
-
-        })
-
-
-}
-
 
 const date = new Date();
 
@@ -30,9 +12,16 @@ let year = date.getFullYear();
 let currentDate = `${year}-0${month}-${day}`;
 console.log(currentDate); // yyyy-mm--dd
 
+var links=false
 
+function linkChoice() {
+    var cb=document.getElementById("linksCB")
+    if (cb.checked == true) {
+        links=true
+       
+    }
 
-
+}
 
 
 function setVisible(keyword) {
@@ -56,11 +45,24 @@ function setVisible(keyword) {
 
 
 
-function selectCountry(country) {
+function selectOption(optparam) {
     //alasvetovalikon value
-    var selected = country.options[country.selectedIndex].value
+    var selected = optparam.options[optparam.selectedIndex].value
     //alasvetovalikon teksti joka näkyy käyttäjälle.
-    var selectedtxt = country.options[country.selectedIndex].text
+    var selectedtxt = optparam.options[optparam.selectedIndex].text
+    document.getElementById("headlinesBtn").textContent = "Get " + selectedtxt + " headlines"
+    document.getElementById("linksCB").hidden=false
+    document.getElementById("linksLbl").hidden=false
+    
+    //käytetään getnewsheadlines funktiossa.
+    return selected
+}
+
+function selectSource(source) {
+    //alasvetovalikon value
+    var selected = source.options[source.selectedIndex].value
+    //alasvetovalikon teksti joka näkyy käyttäjälle.
+    var selectedtxt = source.options[source.selectedIndex].text
     document.getElementById("headlinesBtn").textContent = "Get " + selectedtxt + " headlines"
 
     return selected
@@ -119,15 +121,29 @@ function getByKeyword() {
 
 
 const getNewsHeadlines = () => {
-    
-
-    var selected = selectCountry(country)
-
-    console.log(selected)
-
-    var url = 'https://newsapi.org/v2/top-headlines?' +
+    var apikey = localStorage.getItem("apk")
+    var selected = selectOption(country)
+    console.log(selected.length)
+    //maakohtaisessa haussa käytetään 2 kirjaimista maatunnusta, eli jos selectin pituus on 2 merkkiä
+    //suoriteaan if-lohko
+    if (selected.length==2)
+    {
+        var url = 'https://newsapi.org/v2/top-headlines?' +
         `country=${selected}&` +
         `apiKey=${apikey}`;
+
+    }
+    else if (!selected.includes('-'))
+    {
+        var url =`https://newsapi.org/v2/top-headlines/?category=${selected}&apiKey=${apikey}`
+    }
+    //select on pitempi kuin 2 merkkiä, joten silloin sitä käytetään uutisten hakuun nimetystä lähteestä
+    //select on tässä tapauksessa muotoa bbc-news
+    else {
+       
+        var url = `https://newsapi.org/v2/top-headlines?sources=${selected}&apiKey=${apikey}`
+    }
+   
 
     var req = new Request(url);
     fetch(req)
@@ -139,13 +155,30 @@ const getNewsHeadlines = () => {
             console.log(data)
 
 
+
             //articles on apin palauttama lista, joka sisältää uutiset
             data.articles.forEach(article => {
-                const li = document.createElement("li")
-                li.innerText = article.title
-                document.getElementById("newstext").appendChild(li)
+                if (links==true){
+                    const li = document.createElement("li")
+                    li.innerText = article.title
+                    
+                    const link=document.createElement("a")
+                    link.setAttribute("href",article.url)
+                   
+                    link.textContent=" "+article.url
+                    document.getElementById("newstext").appendChild(li)
+                   
+                    li.appendChild(link)
 
+                }
+                else {
+                    const li = document.createElement("li")
+                    li.innerText = article.title
+                    document.getElementById("newstext").appendChild(li)
 
+                }
+              
+            
             });
 
 

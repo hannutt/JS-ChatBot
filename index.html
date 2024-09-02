@@ -112,15 +112,33 @@ if (templateClicks % 2 == 0)
     <ul id="titles"></ul>
     <div id="newstext" class="newstext"></div>
 </div>
-<label for="country">Read current headlines from country:</label>
+<label class="countryLbl" for="country">Read current headlines by country or category or source:</label>
 <br><br>
-<select name="country" id="country" onchange="selectCountry(this)">
+<select name="country" id="country" onchange="selectOption(this)">
   <option value="select" selected>select</option>
   <option value="us">USA</option>
   <option value="jp">Japan</option>
   <option value="de">Germany</option>
   <option value="gb">Great Britain</option>
+  <!--erotin-->
+  <option style="background-color:lightgray;"disabled>Sources</option>
+  <option value="bbc-news">BBC</option>
+  <option value="abc-news">ABC</option>
+  <option style="background-color:lightgray;"disabled>Category</option>
+  <option value="business">Business</option>
 </select>
+<label id="linksLbl" hidden for="linksCB">Show article links?</label>
+<input hidden id="linksCB" type="checkbox" onchange="linkChoice()">
+
+<!--
+<select name="source" id="source" onchange="selectSource(this)">
+    <option value="select" selected>select</option>
+    
+   
+    <option value="jp">Japan</option>
+    <option value="de">Germany</option>
+    <option value="gb">Great Britain</option>
+  </select>-->
 <button id="headlinesBtn" class="newsBtn" onclick="getNewsHeadlines()">Get headlines</button>
 <br>
 
