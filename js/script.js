@@ -5,6 +5,7 @@ const chatbox = document.querySelector(".chatbox")
 let usermessage;
 var cbClicks = 0
 var asked = 0
+var additional=0
 
 function hideChatBot(){
     cbClicks+=1
@@ -19,6 +20,20 @@ function hideChatBot(){
 
     }
     
+}
+
+function showAdditional() {
+    additional+=1
+    if (additional % 1 == 0)
+    {
+        document.getElementById("additional").hidden=false
+    }
+    if (additional % 2 == 0)
+    {
+        document.getElementById("additional").hidden=true
+
+    }
+
 }
 
 function getApiKey() {

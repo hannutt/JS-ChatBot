@@ -68,6 +68,30 @@ body {
     width: 28%;
     border-radius: 10px;
 }
+
+.moreOptions {
+    position: fixed;
+    left: 780px;
+    top:50px;
+}
+
+.additionalOptions {
+    border-radius: 10px;
+    padding: 10px;
+    position: fixed;
+    width: 31%;
+    top:90px;
+    left: 800px;
+    background-image: url('/images/newsBG.jpg');
+    background-position:-85%;
+
+}
+
+.pub {
+    position:fixed;
+    left: 1000px;
+}
+
 .newsTemplate {
     border-radius: 10px;
     position: fixed;
@@ -90,6 +114,14 @@ body {
     padding: 3px;
     border-radius: 10px;
 }
+
+.additionalBtn {
+   
+    background-color: #42cbf5;
+    padding: 5px;
+    border-radius: 10px;
+}
+
 .keywordBtn {
     position: fixed;
     top:238px;

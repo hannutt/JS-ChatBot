@@ -35,7 +35,7 @@ The news feed function has its own user interface, so you can use the chatbot an
 
 The news feed is retrieved using the newsapi.org Http Rest API. The working principle is very similar to the Chat GPT API described above. The News API response displays the data in a array, so they are looped through in a forEach loop and displayed in a li-element, and each news item gets its own li-element using the JavaScript createElement method.
 
-For now, the news feed is available by country, source, category keyword and date search.
+For now, the news feed is available by country, source, category, keyword, by publisher and date search.
 The search condition is selected from the html-select component and the selection is passed as a parameter to the function that implements the api call. The news found using the search criteria are looped in the forEach loop and displayed in readable form in <i> elements.
 
 The keyword search is started by entering the keyword in the input field. the input field has an onChange event handler that displays the hidden button element if at least one character is typed into the input field. The search is started by clicking the button that appears.

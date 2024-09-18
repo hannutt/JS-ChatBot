@@ -7,6 +7,8 @@ const date = new Date();
 let day = date.getDate();
 let month = date.getMonth() + 1;
 let year = date.getFullYear();
+var element = document.querySelector('#readBtn');
+
 
 // This arrangement can be altered based on how we want the date's format to appear.
 let currentDate = `${year}-0${month}-${day}`;
@@ -37,10 +39,7 @@ function setVisible(keyword) {
         document.getElementById("searchDate").hidden = true
         document.getElementById("dateLbl").hidden = true
 
-
     }
-
-
 }
 
 
@@ -111,7 +110,6 @@ function getByKeyword() {
                 document.getElementById("newstext").appendChild(li)
 
             });
-
 
         })
         .catch(error => console.log(error))

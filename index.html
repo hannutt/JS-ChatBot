@@ -24,6 +24,7 @@ function googleTranslateElementInit() {
     <script src="js/script.js" defer></script>
     <script src="js/DragNdrop.js"></script>
     <script src="js/news.js"></script>
+    <script src="js/additional.js"></script>
 
     
 </head>
@@ -35,21 +36,7 @@ function googleTranslateElementInit() {
 
    <script>
     
-    var templateClicks=0
-$("#hide").click(function(){
-    templateClicks+=1
-    if (templateClicks % 1 == 0)
-    document.getElementById("hide").textContent="Show"
-{
-    $(".examples").hide();  
-}
-if (templateClicks % 2 == 0)
-{
-    $(".examples").show(); 
-    document.getElementById("hide").textContent="Hide"
-}
-  
-});
+
    </script> 
    <span class="translate">
     <div id="chatbot" class="chatbot">
@@ -99,12 +86,9 @@ if (templateClicks % 2 == 0)
         <span class="notranslate">
             <span id="send-btn" class="material-symbols-outlined">
                 send</span>
-            </span>
-            
-                
+            </span>     
         </div>
     </div>
-    
 </div>
 <span class="notranslate">
 <div class="news">
@@ -113,6 +97,22 @@ if (templateClicks % 2 == 0)
     
     <ul id="titles"></ul>
     <div id="newstext" class="newstext"></div>
+</div>
+<div class="moreOptions">
+    <button onclick="showAdditional()"><img src="/images/burger-menu24px.png"></button>
+</div>
+<div class="additionalOptions" id="additional" hidden>
+    <h3>Get news by publisher</h3>
+    <select name="pub" id="pub" class="pub" onchange="selectPublisher(this)">
+        <option value="select" selected>select</option>
+        <option value="techcrunch">techcrunch.com</option>
+        <option value="jp">Japan</option>
+        <option value="de">Germany</option>
+        <option value="gb">Great Britain</option>
+    </select>
+    <input type="text" id="domain" name="domain" placeholder="publisher.com"><br>
+    <input type="text" id="qty" placeholder="how many">
+    <button onclick="getByPublisher()" id="additionalBtn" class="additionalBtn" >Get</button>
 </div>
 <label class="countryLbl" for="country">Read current headlines by country or category or source:</label>
 <br><br>
@@ -133,15 +133,7 @@ if (templateClicks % 2 == 0)
 <label id="linksLbl" hidden for="linksCB">Show article links?</label>
 <input hidden id="linksCB" type="checkbox" onchange="linkChoice()">
 
-<!--
-<select name="source" id="source" onchange="selectSource(this)">
-    <option value="select" selected>select</option>
-    
-   
-    <option value="jp">Japan</option>
-    <option value="de">Germany</option>
-    <option value="gb">Great Britain</option>
-  </select>-->
+
 <button id="headlinesBtn" class="newsBtn" onclick="getNewsHeadlines()">Get headlines</button>
 <br>
 
@@ -167,7 +159,7 @@ if (templateClicks % 2 == 0)
 <script>
    
     
-    var templateClicks=0
+var templateClicks=0
 $("#readBtn").click(function(){
     templateClicks+=1
     if (templateClicks % 1 == 0)
@@ -191,6 +183,7 @@ if (templateClicks % 2 == 0)
    <script>
 
 //newstext divin li-title child komponentin teksti saadaan näin
+//tuplaklikkaus siirtää klikatun tekstin txt inputtiin.
     $("#newstext").on('dblclick','#title',function () {
         var text = jQuery(this).text();
         console.log(text.trim());
