@@ -164,7 +164,9 @@ const getNewsHeadlines = () => {
                 if (links==true){
                     const linebreak=document.createElement("br")
                     const li = document.createElement("li")
+                    li.id="title"
                     li.innerText = article.title
+                    
                     
                     const link=document.createElement("a")
                     link.setAttribute("href",article.url)
@@ -177,7 +179,10 @@ const getNewsHeadlines = () => {
                 }
                 else {
                     const li = document.createElement("li")
+                    li.id="title"
+                    li.draggable=true
                     li.innerText = article.title
+                    li.ondragstart=drag(e)
                     document.getElementById("newstext").appendChild(li)
 
                 }
