@@ -2,7 +2,8 @@ Project keywords: Vanilla-JavaScript, AI, HTML, CSS, API, jQuery.
 
 A JavaScript chatbot and news feed application that uses OpenAI's GPT-3.5 Turbo API to generate responses for the user and Newsapi.org's HTTP REST API to generate a news feed for the user.
 
-The main idea of ​​combining the GPT interface and the news feed is that the user can ask the artificial intelligence for additional information on news topics.
+The main idea of ​​combining the GPT interface and the news feed is that the user can ask the artificial intelligence for additional information on news topics. Each news headline can be moved by double-clicking the text field of the chatbot interface and sent as a question to the GPT API.
+This feature is made using jQuery dblclick method.
 
 Example image where the search is limited to USA news headlines without a clickable link to the news.
 

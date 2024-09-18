@@ -149,7 +149,7 @@ if (templateClicks % 2 == 0)
 <br>
 
 <div class="inputs">
-    <label id="kwLbl" for="keyword" draggable="true" ondragstart="drag(event)"><b>Or use keyword:</b></label>
+    <label id="kwLbl" for="keyword"><b>Or use keyword:</b></label>
 <input type="text" id="keyword" placeholder="keyword" onchange="setVisible(document.getElementById('keyword').value)">
 <br><br>
 <label hidden id="dateLbl" for="searchDate"><b>From the date:</b></label>
@@ -162,6 +162,7 @@ if (templateClicks % 2 == 0)
 
 <button hidden id="keywordBtn" class="keywordBtn" onclick="getByKeyword()">Get By keyword</button>
 </span>
+
 
 <script>
    
@@ -186,7 +187,17 @@ if (templateClicks % 2 == 0)
 }
   
 });
-   </script> 
+   </script>
+   <script>
+
+//newstext divin li-title child komponentin teksti saadaan näin
+    $("#newstext").on('dblclick','#title',function () {
+        var text = jQuery(this).text();
+        console.log(text.trim());
+        document.getElementById("txt").innerText=text
+   
+  });
+   </script>
 </body>
 
 </html>
