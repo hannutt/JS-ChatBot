@@ -29,7 +29,9 @@ function googleTranslateElementInit() {
 </head>
 
 <body onload="getApiKey()">
-   
+   <div>
+    <button onclick="hideChatBot()">X</button>
+   </div>
 
    <script>
     
@@ -50,7 +52,7 @@ if (templateClicks % 2 == 0)
 });
    </script> 
    <span class="translate">
-    <div class="chatbot">
+    <div id="chatbot" class="chatbot">
         <header>
             <span class="notranslate">
             <p class="asked" >Questions asked:</p>
@@ -126,6 +128,7 @@ if (templateClicks % 2 == 0)
   <option value="abc-news">ABC</option>
   <option style="background-color:lightgray;"disabled>Category</option>
   <option value="business">Business</option>
+  <option value="sports">Sports</option>
 </select>
 <label id="linksLbl" hidden for="linksCB">Show article links?</label>
 <input hidden id="linksCB" type="checkbox" onchange="linkChoice()">

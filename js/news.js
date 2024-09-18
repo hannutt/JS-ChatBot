@@ -69,6 +69,7 @@ function selectSource(source) {
 }
 
 function getByKeyword() {
+    var apikey = localStorage.getItem("apk")
     document.getElementById("newsTemplate").hidden = false
     var searchDate = document.getElementById("searchDate").value
     if (searchDate == '') {
@@ -121,6 +122,7 @@ function getByKeyword() {
 
 
 const getNewsHeadlines = () => {
+    document.getElementById("newsTemplate").hidden = false
     var apikey = localStorage.getItem("apk")
     var selected = selectOption(country)
     console.log(selected.length)
@@ -157,8 +159,10 @@ const getNewsHeadlines = () => {
 
 
             //articles on apin palauttama lista, joka sisältää uutiset
+            
             data.articles.forEach(article => {
                 if (links==true){
+                    const linebreak=document.createElement("br")
                     const li = document.createElement("li")
                     li.innerText = article.title
                     
@@ -167,8 +171,8 @@ const getNewsHeadlines = () => {
                    
                     link.textContent=" "+article.url
                     document.getElementById("newstext").appendChild(li)
-                   
                     li.appendChild(link)
+                    li.appendChild(linebreak)
 
                 }
                 else {

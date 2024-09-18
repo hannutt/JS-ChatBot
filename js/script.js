@@ -3,8 +3,23 @@ const sendChatBtn = document.querySelector(".chat-input span")
 const chatInput = document.querySelector(".chat-input textarea")
 const chatbox = document.querySelector(".chatbox")
 let usermessage;
-
+var cbClicks = 0
 var asked = 0
+
+function hideChatBot(){
+    cbClicks+=1
+    if (cbClicks % 1 == 0)
+    {
+        document.getElementById("chatbot").hidden=true
+
+    }
+    if (cbClicks % 2 == 0)
+    {
+        document.getElementById("chatbot").hidden=false
+
+    }
+    
+}
 
 function getApiKey() {
     fetch("/js/apikey.txt")

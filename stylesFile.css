@@ -51,7 +51,7 @@ body {
 
 .readBtn {
     position: fixed;
-    top:236px;
+    top:238px;
     left:630px;
     background-color: #42cbf5;
     padding: 3px;
@@ -63,7 +63,8 @@ body {
     position: fixed;
     left: 360px;
     top:50px;
-    background-color: #bbede7;
+    background-image: url('/images/newsBG.jpg');
+    background-position:-85%;
     width: 28%;
     border-radius: 10px;
 }
@@ -71,9 +72,10 @@ body {
     border-radius: 10px;
     position: fixed;
     left: 360px;
-    top:264px;
-    background-color:#bbede7;
-    width: 30%;
+    top:267px;
+    background-color:#9e9d9b;
+    
+    width: 31%;
     border: 1px solid black;
     height:55%;
     overflow-y: scroll;
@@ -90,7 +92,7 @@ body {
 }
 .keywordBtn {
     position: fixed;
-    top:235px;
+    top:238px;
     background-color: #42cbf5;
     padding: 3px;
     border-radius: 10px;

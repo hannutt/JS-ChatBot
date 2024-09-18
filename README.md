@@ -4,21 +4,20 @@ A JavaScript chatbot and news feed application that uses OpenAI's GPT-3.5 Turbo 
 
 The main idea of ​​combining the GPT interface and the news feed is that the user can ask the artificial intelligence for additional information on news topics.
 
-Example image where the search is limited to UK news headlines without a clickable link to the news.
+Example image where the search is limited to USA news headlines without a clickable link to the news.
 
-![alt text](newsNoLink.png)
+![alt text](images/usaHeadlines.png)
 
 An example image where the search also includes a link to the article's news. the user can select the Show article links check box if the news source link is to be displayed.
 
-![alt text](newsLinks.png)
+![alt text](images/usaHeadlinesLink.png)
 
 
 
 
 Example image, where news is searched for from the News API using the keyword (Apple) starting on August 1, 2024.
 
-![alt text](bykeyword-1.png)
-
+![alt text](images/bykeyword.png)
 
 
 CHATBOT
@@ -27,7 +26,7 @@ The program has a html interface with an input field where the user can write th
 
 Example picture of the chatbot user interface and asking a question and receiving an answer
 
-![alt text](chatbotApple.png)
+![alt text](images/chatbotApple.png)
 
 NEWS FEED
 
@@ -61,7 +60,7 @@ Normally, the translation API would translate the entire page's texts, but now o
 An example picture of the chatbot's response translated into Finnish using the Google Translate API.
 The API integration can be seen in the upper left of the picture, where you can choose the translation language you want.
 
-![alt text](chatbottranslate.png)
+![alt text](images/chatbottranslate.png)
 
 
 
