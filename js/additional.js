@@ -11,18 +11,13 @@ function getByPublisher() {
     document.getElementById("newsTemplate").hidden = false
     var publisher = document.getElementById("domain").value
     var qty=document.getElementById("qty").value
-    if (qty==null)
+    if (qty=="")
     {
-        qty=20
+        var url = `https://newsapi.org/v2/everything?domains=${publisher}&apiKey=${apikey}&pageSize=${20}`
     }
-    else {
-        return qty
+    else{
+        var url = `https://newsapi.org/v2/everything?domains=${publisher}&apiKey=${apikey}&pageSize=${qty}`
     }
-  
-
-
-  
-    var url = `https://newsapi.org/v2/everything?domains=${publisher}&apiKey=${apikey}&pageSize=${qty}`
        
     var req = new Request(url);
 
@@ -47,5 +42,6 @@ function getByPublisher() {
 
         })
         .catch(error => console.log(error))
-
+  
+    
 }

@@ -15,11 +15,21 @@ let currentDate = `${year}-0${month}-${day}`;
 console.log(currentDate); // yyyy-mm--dd
 
 var links=false
+var images=false
 
 function linkChoice() {
     var cb=document.getElementById("linksCB")
     if (cb.checked == true) {
         links=true
+       
+    }
+
+}
+
+function imageChoice() {
+    var cb=document.getElementById("imageCB")
+    if (cb.checked == true) {
+        images=true
        
     }
 
@@ -52,6 +62,8 @@ function selectOption(optparam) {
     document.getElementById("headlinesBtn").textContent = "Get " + selectedtxt + " headlines"
     document.getElementById("linksCB").hidden=false
     document.getElementById("linksLbl").hidden=false
+    document.getElementById("imageCB").hidden=false
+    document.getElementById("imageLbl").hidden=false
     
     //käytetään getnewsheadlines funktiossa.
     return selected
@@ -173,6 +185,24 @@ const getNewsHeadlines = () => {
                     link.textContent=" "+article.url
                     document.getElementById("newstext").appendChild(li)
                     li.appendChild(link)
+                    li.appendChild(linebreak)
+
+                }
+                else if (images==true) {
+                    const linebreak=document.createElement("br")
+                    const li = document.createElement("li")
+                    li.id="title"
+                    
+                    li.innerText = article.title
+                    
+                    //kuvien näyttö, luodaan ensin img-elementti
+                    const images=document.createElement("img")
+                    //src eli kuvalähde
+                    images.setAttribute("src",article.urlToImage,"width",200,"height",200)
+                   
+                    
+                    document.getElementById("newstext").appendChild(li)
+                    li.appendChild(images)
                     li.appendChild(linebreak)
 
                 }

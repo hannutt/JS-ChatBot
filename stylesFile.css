@@ -87,6 +87,12 @@ body {
 
 }
 
+.email {
+    position: fixed;
+    left: 850px;
+    top: 270px;
+}
+
 .pub {
     position:fixed;
     left: 1000px;
@@ -138,5 +144,9 @@ body {
 .countryLbl {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+}
+.sendtxt {
+    background-color: lightgray;
+    border-radius: 5px;
 }
     

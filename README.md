@@ -1,4 +1,4 @@
-Project keywords: Vanilla-JavaScript, AI, HTML, CSS, API, jQuery. 
+Project keywords: Vanilla-JavaScript, AI, HTML, CSS, API, jQuery, SmtpJS
 
 A JavaScript chatbot and news feed application that uses OpenAI's GPT-3.5 Turbo API to generate responses for the user and Newsapi.org's HTTP REST API to generate a news feed for the user.
 
@@ -14,11 +14,13 @@ An example image where the search also includes a link to the article's news. th
 ![alt text](images/usaHeadlinesLink.png)
 
 
-
-
 Example image, where news is searched for from the News API using the keyword (Apple) starting on August 1, 2024.
 
 ![alt text](images/bykeyword.png)
+
+You can also choose to display an image related to the article by clicking the checkbox.
+
+![alt text](images/articleImg.png)
 
 
 CHATBOT
@@ -41,16 +43,21 @@ The search condition is selected from the html-select component and the selectio
 The keyword search is started by entering the keyword in the input field. the input field has an onChange event handler that displays the hidden button element if at least one character is typed into the input field. The search is started by clicking the button that appears.
 The keyword is passed as a parameter to the newsAPI URL.
 
-News with source link
+NEWS WITH SOURCE LINK
 
 When the user has selected a search condition from the html-select component, a selection box appears, from which you can also select the source link of the news to be displayed.
 the news link is received in the news API response as article.url and is wrapped in the a element using the JavaScript create element method.
 
-Date search. The user can enter the start date in the input field. The News API requires a date in the format YYYY-MM-DD. Since form is important, I used two methods to guide the user in spelling.
+DATE SEARCH
+
+The user can enter the start date in the input field. The News API requires a date in the format YYYY-MM-DD. Since form is important, I used two methods to guide the user in spelling.
 
 The first way is to use a placeholder and the second way is the jQuery Masking plugin.
 The masking plugin automatically adds a hyphen in the right place, i.e. the first hyphen is added after 4 characters and the remaining hyphens after 2 characters.
 
+SEND NEWS TO YOUR EMAIL
+
+Selected news can be sent to an email address. The program uses SmtpJS library and Elastic email SMTP API to send email. the news is displayed in a div template called newsTemplate and is stored in a variable using the innerHtml method. Then the Email method receives a variable as a parameter.
 
 TRANSLATE
 
